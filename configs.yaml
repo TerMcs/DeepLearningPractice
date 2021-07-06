@@ -1,0 +1,10 @@
+seed: 12345
+num_epochs:
+learning_rate:
+batch_size:
+in_channels:
+num_features:
+drop_rate:
+num_classes:
+#data_dir:
+#log_dir:
