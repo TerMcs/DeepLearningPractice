@@ -1,2 +1,1 @@
-# eangach_chasta
-Líonra néarach.
+# Deep Learning Practice
