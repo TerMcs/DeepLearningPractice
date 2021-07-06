@@ -8,3 +8,6 @@ drop_rate:
 num_classes:
 #data_dir:
 #log_dir:
+# Fully connected:
+input_size: 28
+hidden_size:

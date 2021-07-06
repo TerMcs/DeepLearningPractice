@@ -1,6 +1,8 @@
 import torch
 from torch import nn
 
+# see ResNet_CIFAR-10_B.py and example resnet in collagen.
+
 class ResidualBlock(nn.Module):
     def __init__(self, ):
         super().__init__()
