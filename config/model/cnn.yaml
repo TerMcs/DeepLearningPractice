@@ -1,0 +1,5 @@
+_target_: models.cnn.ConvNet
+in_channels: 1
+out_channels: 16
+kernel_size: 5
+num_classes: 10

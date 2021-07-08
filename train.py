@@ -4,16 +4,18 @@ import random
 import hydra
 
 
+from omegaconf import DictConfig, OmegaConf
 from utils import get_mnist, train_loop, test_loop
-from models.fullyconnected import FullyConnected
 
 @hydra.main(config_path="./config/", config_name="configs.yaml")
-def main(cfg):
+def main(cfg: DictConfig) -> None:
+    print(OmegaConf.to_yaml(cfg))
+
     torch.manual_seed(cfg.seed)
     np.random.seed(cfg.seed)
     random.seed(cfg.seed)
 
-    #model = hydra.utils.instantiate(cfg.model)
+    model = hydra.utils.instantiate(cfg.model)
 
 #    model = ResNet... check these work with the old system, then create the config entry for the specific model then the line above can stay exactly the same.
 

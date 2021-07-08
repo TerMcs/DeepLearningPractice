@@ -1,6 +1,6 @@
 defaults:
   - model: fc
-  - optimizer: adam
+#  - optimizer: adam
 #  - dataset: mnist
 
 seed: 12345
@@ -13,6 +13,3 @@ batch_size: 64
 #num_classes: 10
 #data_dir:
 #log_dir:
-# Fully connected:
-#input_size: 784
-#hidden_size: 512
