@@ -1,3 +1,8 @@
+defaults:
+#  - optimizer: adam
+  - model: fc
+#  - dataset: mnist
+
 seed: 12345
 num_epochs: 3
 learning_rate: 0.001
@@ -5,9 +10,9 @@ batch_size: 64
 #in_channels:
 #num_features:
 #drop_rate:
-num_classes: 10
+#num_classes: 10
 #data_dir:
 #log_dir:
 # Fully connected:
-input_size: 784
-hidden_size: 512
+#input_size: 784
+#hidden_size: 512

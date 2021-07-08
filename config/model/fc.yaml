@@ -1,0 +1,5 @@
+fc:
+  _target_: models.fullyconnected.FullyConnected
+  input_size: 784
+  hidden_size: 512
+  num_classes: 10
