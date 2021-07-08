@@ -3,7 +3,6 @@ import numpy as np
 import random
 import hydra
 
-from omegaconf import DictConfig
 
 from utils import get_mnist, train_loop, test_loop
 from models.fullyconnected import FullyConnected

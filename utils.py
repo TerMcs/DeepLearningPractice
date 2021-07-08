@@ -34,9 +34,15 @@ def get_mnist(batch_size):
     return train_loader, test_loader
 
 def get_cifar10(batch_size):
+    transform = transforms.Compose([
+        transforms.Pad(4),
+        transforms.RandomHorizontalFlip(),
+        transforms.RandomCrop(32),
+        transforms.ToTensor()])
+
     train_dataset = torchvision.datasets.CIFAR10(root='',
                                                  train=True,
-                                                 transform=transforms.ToTensor(), #my_transforms()
+                                                 transform=transform,
                                                  download=True)
 
     test_dataset = torchvision.datasets.CIFAR10(root='',
