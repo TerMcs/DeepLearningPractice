@@ -1,6 +1,6 @@
 defaults:
-#  - optimizer: adam
   - model: fc
+  - optimizer: adam
 #  - dataset: mnist
 
 seed: 12345
