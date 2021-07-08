@@ -1,3 +1,4 @@
+import os
 import torch
 import torchvision
 import torchvision.transforms as transforms
@@ -35,7 +36,7 @@ def get_mnist(batch_size):
 def get_cifar10(batch_size):
     train_dataset = torchvision.datasets.CIFAR10(root='',
                                                  train=True,
-                                                 transform=my_transforms(),
+                                                 transform=transforms.ToTensor(), #my_transforms()
                                                  download=True)
 
     test_dataset = torchvision.datasets.CIFAR10(root='',
