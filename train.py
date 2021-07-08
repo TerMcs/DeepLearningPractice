@@ -13,11 +13,16 @@ def main(cfg):
     np.random.seed(cfg.seed)
     random.seed(cfg.seed)
 
-    model = hydra.utils.instantiate(cfg.model)
+    #model = hydra.utils.instantiate(cfg.model)
+
+#    model = ResNet... check these work with the old system, then create the config entry for the specific model then the line above can stay exactly the same.
+
+ #   model = CNN...
+
     loss_fn = torch.nn.CrossEntropyLoss()
 
     #optimizer = hydra.utils.instantiate(cfg.optimizer)
-    optimizer = torch.optim.Adam(params, lr=cfg.learning_rate)
+    optimizer = torch.optim.Adam(model.parameters(), lr=cfg.learning_rate)
 
     train_data, test_data = get_mnist(batch_size=cfg.batch_size)
 
