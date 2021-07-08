@@ -14,9 +14,10 @@ def main(cfg):
     random.seed(cfg.seed)
 
     model = hydra.utils.instantiate(cfg.model)
-
     loss_fn = torch.nn.CrossEntropyLoss()
-    optimizer = torch.optim.Adam(model.parameters(), lr=cfg.learning_rate)
+
+    #optimizer = hydra.utils.instantiate(cfg.optimizer)
+    optimizer = torch.optim.Adam(params, lr=cfg.learning_rate)
 
     train_data, test_data = get_mnist(batch_size=cfg.batch_size)
 
