@@ -9,5 +9,5 @@ num_classes: 10
 #data_dir:
 #log_dir:
 # Fully connected:
-input_size: 28 * 28
+input_size: 784
 hidden_size: 512
