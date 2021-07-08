@@ -29,4 +29,4 @@ Plan:
 
 ### Logged Configs
 
-![](https://github.com/TerMcs/dl_practice/blob/8ec3cb96b00c14c42093ca0a36f3859e1965dc34/assets/hydralog.pngO)
+![](https://github.com/TerMcs/dl_practice/blob/8ec3cb96b00c14c42093ca0a36f3859e1965dc34/assets/hydralog.png)
