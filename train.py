@@ -26,9 +26,9 @@ for epoch in range(cfg.num_epochs):
     print(f"Epoch {epoch + 1}\n-------------------------------")
     train_loop(train_data, model, loss_fn, optimizer)
 
-    if (epoch + 1) % 20 == 0:
-        curr_lr /= 3
-        update_lr(optimizer, curr_lr)
+    #if (epoch + 1) % 20 == 0:
+        #curr_lr /= 3
+        #update_lr(optimizer, curr_lr)
 
     test_loop(test_data, model, loss_fn)
 

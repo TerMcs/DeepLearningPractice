@@ -1,16 +1,41 @@
 import torch
 import torchvision
 import torchvision.transforms as transforms
+from torch.utils.data import Dataset, DataLoader
+from torchvision import datasets
 
-def my_transforms():
+
+#def my_transforms():
 
 def get_mnist(batch_size):
+    train_dataset = datasets.MNIST(root='data',
+                                   train=True,
+                                   transform=transforms.ToTensor(),
+                                   download=True
+                                   )
 
+    test_dataset = datasets.MNIST(root='data',
+                                  train=False,
+                                  transform=transforms.ToTensor(),
+                                  download=True
+                                  )
+
+    train_loader = DataLoader(dataset=train_dataset,
+                              batch_size=batch_size,
+                              shuffle=True
+                              )
+
+    test_loader = DataLoader(dataset=test_dataset,
+                             batch_size=batch_size,
+                             shuffle=False
+                             )
+
+    return train_loader, test_loader
 
 def get_cifar10(batch_size):
     train_dataset = torchvision.datasets.CIFAR10(root='',
                                                  train=True,
-                                                 transform=...,
+                                                 transform=my_transforms(),
                                                  download=True)
 
     test_dataset = torchvision.datasets.CIFAR10(root='',
@@ -40,7 +65,6 @@ def get_dicom_files(path, string1, string2):
                     file_list.append(os.path.join(root, filename))
     return file_list
 
-# Standard train and test loops for deep neural networks in PyTorch:
 def train_loop(dataloader, model, loss_fn, optimizer):
 
     size = len(dataloader.dataset)
@@ -57,13 +81,13 @@ def train_loop(dataloader, model, loss_fn, optimizer):
         optimizer.step()
 
         # Running training accuracy for visualisation:
-        predictions = pred.argmax(1)
-        num_correct = (predictions == labels).sum()
-        running_training_acc = float(num_correct) / float(images.shape[0])
-        accuracy.append(running_training_acc)
+        #predictions = pred.argmax(1)
+        #num_correct = (predictions == labels).sum()
+        #running_training_acc = float(num_correct) / float(images.shape[0])
+        #accuracy.append(running_training_acc)
 
         # Some metrics:
-        num_iter = epoch * len(dataloader) + batch
+        #num_iter = epoch * len(dataloader) + batch
         if batch % 100 == 0:
             loss = loss.item()
             current = batch * len(images)

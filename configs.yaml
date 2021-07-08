@@ -1,13 +1,13 @@
 seed: 12345
-num_epochs:
-learning_rate:
-batch_size:
+num_epochs: 3
+learning_rate: 0.001
+batch_size: 64
 in_channels:
 num_features:
 drop_rate:
-num_classes:
+num_classes: 10
 #data_dir:
 #log_dir:
 # Fully connected:
 input_size: 28
-hidden_size:
+hidden_size: 512
