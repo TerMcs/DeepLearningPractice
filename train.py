@@ -17,10 +17,6 @@ def main(cfg: DictConfig) -> None:
 
     model = hydra.utils.instantiate(cfg.model)
 
-#    model = ResNet... check these work with the old system, then create the config entry for the specific model then the line above can stay exactly the same.
-
- #   model = CNN...
-
     loss_fn = torch.nn.CrossEntropyLoss()
 
     #optimizer = hydra.utils.instantiate(cfg.optimizer)
