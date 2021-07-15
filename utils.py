@@ -1,12 +1,11 @@
 import os
+import importlib
 import torch
 import torchvision
 import torchvision.transforms as transforms
 from torch.utils.data import Dataset, DataLoader
 from torchvision import datasets
 
-
-#def my_transforms():
 
 def get_mnist(batch_size):
     train_dataset = datasets.MNIST(root='../../data',
@@ -33,6 +32,7 @@ def get_mnist(batch_size):
 
     return train_loader, test_loader
 
+
 def get_cifar10(batch_size):
     transform = transforms.Compose([
         transforms.Pad(4),
@@ -58,6 +58,7 @@ def get_cifar10(batch_size):
                                               shuffle=False)
     return train_loader, test_loader
 
+
 # Functions for loading DICOM files:
 def get_dicom_files(path, string1, string2):
     """
@@ -71,6 +72,7 @@ def get_dicom_files(path, string1, string2):
                 if string2 in filename:
                     file_list.append(os.path.join(root, filename))
     return file_list
+
 
 def train_loop(dataloader, model, loss_fn, optimizer):
 
@@ -122,3 +124,13 @@ def test_loop(dataloader, model, loss_fn):
     print(f"Test Error: \n Accuracy: {(100*correct):>0.1f}%, Average loss: {test_loss:>8f} \n")
 
 
+def init_obj_cls(string_def):
+    obj_cls = getattr(importlib.import_module(string_def))
+    return obj_cls
+
+
+def init_obj(string_def, params):
+    obj_cls = init_obj_cls(string_def)
+    if params is None:
+        params = {}
+    return obj_cls(**params)

@@ -5,7 +5,7 @@ import hydra
 
 
 from omegaconf import DictConfig, OmegaConf
-from utils import get_mnist, train_loop, test_loop
+from utils import get_mnist, train_loop, test_loop, init_obj_cls, init_obj
 
 @hydra.main(config_path="./config/", config_name="configs.yaml")
 def main(cfg: DictConfig) -> None:
@@ -20,7 +20,10 @@ def main(cfg: DictConfig) -> None:
     loss_fn = torch.nn.CrossEntropyLoss()
 
     #optimizer = hydra.utils.instantiate(cfg.optimizer)
-    optimizer = torch.optim.Adam(model.parameters(), lr=cfg.learning_rate)
+    #optimizer = torch.optim.Adam(model.parameters(), lr=cfg.learning_rate)
+    opt_params = dict(cfg.optimizer)
+    opt_params['params'] = model.parameters()
+    optimizer = init_obj(cfg.optimizer, opt_params)
 
     train_data, test_data = get_mnist(batch_size=cfg.batch_size)
 
