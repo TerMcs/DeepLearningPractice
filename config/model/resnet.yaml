@@ -1,6 +1,0 @@
-_target_: models.resnet.ResNet
-in_channels: 1
-num_features: 28
-drop_rate: 0.2
-#out_channels:
-num_classes: 10
