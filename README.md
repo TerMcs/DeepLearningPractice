@@ -1,6 +1,6 @@
-# Deep Learning Practice
+My first projects using deep learning.
 
-Attempted refactoring of https://github.com/TerMcs/NeuralNetworkPractice.
+# Deep Learning Practice
 
 - Added env.yml to reproduce the virtual envirnoment (requirements.txt is a pip alternative).
 - Added setup.py - need to work on this.
